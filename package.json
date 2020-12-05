@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/netrules/valiu-url2img#readme",
   "dependencies": {
+    "capture-website": "^1.2.6",
     "express": "^4.17.1",
     "request": "^2.88.2"
   },
