@@ -1,0 +1,36 @@
+{
+  "name": "valiu-url2img",
+  "version": "1.0.0",
+  "description": "Microservice that converts requests with URL address to images",
+  "main": "server.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netrules/valiu-url2img.git"
+  },
+  "keywords": [
+    "nodejs",
+    "ava",
+    "valiu",
+    "url2img",
+    "url",
+    "image",
+    "microservice",
+    "multithreading",
+    "capture",
+    "website"
+  ],
+  "author": "sgonzález",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/netrules/valiu-url2img/issues"
+  },
+  "homepage": "https://github.com/netrules/valiu-url2img#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
+}
