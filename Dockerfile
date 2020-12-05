@@ -41,34 +41,28 @@ RUN sudo apt-get update && \
         xdg-utils && \
     sudo rm -rf /var/lib/apt/lists/*
 
+WORKDIR /usr/src/app
+
 FROM base as build
 
 COPY package.json
-RUN npm install --pure-lockfile
-RUN rm -f .npmrc
+RUN npm install
 COPY . ./
-RUN yarn run build \
- && yarn pack \
- && tar -xzf *.tgz
+RUN npm run build
 
 FROM base as install
 
-ARG NPM_TOKEN
-
-COPY --from=build /usr/src/app/package/package.json ./usr/src/app/package/yarn.lock ./
-RUN echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
-RUN yarn install --production --pure-lockfile
-RUN rm -f .npmrc
-COPY --from=build /usr/src/app/package .
+COPY --from=build /usr/src/app/package.json ./usr/src/app/package-lock.json ./
+RUN npm install
 
 FROM base
 
 COPY --from=install /usr/src/app .
 
-ENV NODE_ENV=production \
-    PORT=8080
+#ENV NODE_ENV=production \
+#    PORT=8080
 
-EXPOSE 8080
+#EXPOSE 8080
 
 ENTRYPOINT ["node"]
 
