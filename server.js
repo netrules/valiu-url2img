@@ -1,6 +1,7 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const config = require('./core/config');
+const port = config.app.port;
 
 const routes = require('./api/routes');
 routes(app);
