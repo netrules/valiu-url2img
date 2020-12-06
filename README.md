@@ -46,7 +46,7 @@ docker run -ti -p $HOST_AVAILABLE_PORT:$URL2IMG_PORT --name valiu-url2img valiu-
     - Do `source .env` if on linux, or replace `$URL2IMG_PORT` in the second line for the value in the `.env` file.
 
 #### Deploying on gitpod
-Check out the badge at the top.... [𝓸𝓻 𝓼𝓲𝓶𝓹𝓵𝔂 𝓬𝓵𝓲𝓬𝓴 𝓶𝓮](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod) 💩🤓
+Check out the badge at the top.... [𝓸𝓻 𝓼𝓲𝓶𝓹𝓵𝔂 𝓬𝓵𝓲𝓬𝓴 𝓶𝓮](https://gitpod.io/#https://github.com/netrules/valiu-url2img) 💩🤓
 
 
 ### USAGE
