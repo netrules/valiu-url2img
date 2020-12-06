@@ -17,13 +17,15 @@ var controllers = {
         })
    },
    captureImageFromUrl: function(req, res) {
-    valiu.find(req, res, function(err, dist) {
+    valiu.find(req, res, function(code, err, dist) {
         // V not impl. yet
-        if (err)
-            res.send(err);
-            res.end(dist);
-        });
-    }
+        if (code)
+            res.status(code);
+            
+        res.send(err);
+        res.end(dist, "json");
+    });
+   }
 };
 
 module.exports = controllers;

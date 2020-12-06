@@ -8,5 +8,5 @@ module.exports = function(app) {
    app.route('/status')
        .get(controller.status);
    app.route('/capture')
-        .get(controller.captureImageFromUrl);
+       .get(controller.captureImageFromUrl);
 };
