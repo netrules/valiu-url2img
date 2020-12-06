@@ -1,7 +1,19 @@
-FROM node:12 as base
+FROM node:10 as base
 
-RUN sudo apt-get update && \
-    sudo apt-get install -y \
+RUN apt-get update
+
+WORKDIR /usr/src/app
+
+FROM base as build
+
+COPY package.json .
+RUN npm install
+COPY . ./
+
+FROM base
+
+RUN apt-get update && \
+    apt-get install -y \
         ca-certificates \
         fonts-liberation \
         libappindicator3-1 \
@@ -39,33 +51,19 @@ RUN sudo apt-get update && \
         lsb-release \
         wget \
         xdg-utils && \
-    sudo rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/app
+RUN apt-get install bash
 
-FROM base as build
-
-COPY package.json
-RUN npm install
-COPY . ./
-RUN npm run build
-
-FROM base as install
-
-COPY --from=build /usr/src/app/package.json ./usr/src/app/package-lock.json ./
-RUN npm install
-
-FROM base
-
-COPY --from=install /usr/src/app .
+COPY --from=build /usr/src/app .
 
 #ENV NODE_ENV=production \
 #    PORT=8080
 
 #EXPOSE 8080
 
-ENTRYPOINT ["node"]
+#ENTRYPOINT ["bash"]
 
-CMD ["server.js"]
+CMD npm run serve
 
-USER node
+#USER node

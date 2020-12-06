@@ -15,7 +15,7 @@ const captureOptions = {
 
 var valiu = {
     find: async function(req, res, next) {
-        let urlLoad = url.parse(req.url,true).query.urlLoad;
+        let urlLoad = url.parse(req.url,true).query.q;
 
         // use capture-website to save capture as byte stream
         let content = await captureWebsite.buffer(urlLoad, captureOptions);

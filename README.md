@@ -38,12 +38,16 @@ npm start server
 1. Instructions
 ```sh
 docker build -t valiu-url2img/1.0 .
-docker run -ti -p $HOST_AVAILABLE_PORT:$URL2IMG_PORT --name valiu-url2img vali-url2img/1.0
+docker run -ti -p $HOST_AVAILABLE_PORT:$URL2IMG_PORT --name valiu-url2img valiu-url2img/1.0
 ```
 2. Notes:
     - Replace `$HOST_AVAILABLE_PORT` for an available port to listen to the node.js service.
-    - Do `source .env` if on linux, or replace `$URL2IMG_PORT` for the value in the `.env` file.
-
+        - e.g.: `docker run -ti -p 32696:32696 --name valiu-url2img valiu-url2img/1.0`
+    - Do `source .env` if on linux, or replace `$URL2IMG_PORT` in the second line for the value in the `.env` file.
 
 #### Deploying on gitpod
-Check out the badge at the top.... 𝓸𝓻 𝓼𝓲𝓶𝓹𝓵𝔂 𝓬𝓵𝓲𝓬𝓴 [𝓶𝓮](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod) 💩🤓
+Check out the badge at the top.... [𝓸𝓻 𝓼𝓲𝓶𝓹𝓵𝔂 𝓬𝓵𝓲𝓬𝓴 𝓶𝓮](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod) 💩🤓
+
+
+### USING
+    Look at the example.js file :)
