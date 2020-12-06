@@ -49,5 +49,5 @@ docker run -ti -p $HOST_AVAILABLE_PORT:$URL2IMG_PORT --name valiu-url2img valiu-
 Check out the badge at the top.... [𝓸𝓻 𝓼𝓲𝓶𝓹𝓵𝔂 𝓬𝓵𝓲𝓬𝓴 𝓶𝓮](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod) 💩🤓
 
 
-### USING
+### USAGE
     Look at the example.js file :)

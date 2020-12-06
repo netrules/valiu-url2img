@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
+const app = require('./core/app');
 const config = require('./core/config');
-const port = config.app.port;
+const http = require('http')
+const server = http.createServer(app);
+const PORT = config.app.port;
 
-const routes = require('./api/routes');
-routes(app);
-app.listen(port, function() {
-   console.log('Server started on port: ' + port);
+server.listen(PORT, function() {
+   console.log('Server started on port: ' + PORT);
+//    console.log(`Server started on port: ${PORT}`);
 });
