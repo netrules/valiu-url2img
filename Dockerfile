@@ -1,13 +1,19 @@
-FROM gitpod/workspace-fulla
+FROM node:10 as base
 
-# Install custom tools, runtimes, etc.
-# For example "bastet", a command-line tetris clone:
-# RUN brew install bastet
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+RUN apt-get update
 
-RUN sudo apt-get update && \
-    sudo apt-get install -y \
+WORKDIR /usr/src/app
+
+FROM base as build
+
+COPY package.json .
+RUN npm install
+COPY . ./
+
+FROM base
+
+RUN apt-get update && \
+    apt-get install -y \
         ca-certificates \
         fonts-liberation \
         libappindicator3-1 \
@@ -45,4 +51,19 @@ RUN sudo apt-get update && \
         lsb-release \
         wget \
         xdg-utils && \
-    sudo rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install bash
+
+COPY --from=build /usr/src/app .
+
+#ENV NODE_ENV=production \
+#    PORT=8080
+
+#EXPOSE 8080
+
+#ENTRYPOINT ["bash"]
+
+CMD npm run serve
+
+#USER node

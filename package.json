@@ -4,7 +4,13 @@
   "description": "Microservice that converts requests with URL address to images",
   "main": "server.js",
   "scripts": {
-    "test": "ava"
+    "serve": "node --require dotenv/config server.js",
+    "test": "nyc ava"
+  },
+  "ava": {
+    "files": [
+      "test/ava.js"
+    ]
   },
   "repository": {
     "type": "git",
@@ -29,9 +35,15 @@
   },
   "homepage": "https://github.com/netrules/valiu-url2img#readme",
   "dependencies": {
+    "ava": "^3.13.0",
+    "axios": "^0.21.0",
     "capture-website": "^1.2.6",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "supertest": "^6.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nyc": "^15.1.0"
+  }
 }
