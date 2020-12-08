@@ -4,7 +4,7 @@
 Microservice that converts requests with URL address to images
 
 ## How to use
-There's three ways to get the microservice running:
+There's three ways to get the microservice running, either with vanilla nodejs, docker or online devops.
 
 ## Setting up
 
